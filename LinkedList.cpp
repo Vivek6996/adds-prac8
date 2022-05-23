@@ -14,12 +14,20 @@ LinkedList::LinkedList() {
 
 LinkedList::LinkedList(int array[], int size) {
 
-head = NULL;
+  head = new Node();
 
-    for (int i = 0; i < size; i++) {
-        addEnd(array[i]);                     
-    }
+  head -> setData(array[0]);
 
+  Node * n = head;
+
+  for (int i = 1; i < size; i++)
+  {
+    Node * n2 = new Node();
+    n2 -> setData(array[i]);
+    n -> setNext(n2);
+    n = n2;
+    
+  }
 }
 
 
